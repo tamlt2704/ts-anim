@@ -2,15 +2,16 @@
  * Emacs Init scene — teaches init.el configuration one feature at a time.
  * Left: IDE types code. Right: Emacs shows the effect.
  */
-import {makeScene2D, Audio, Txt} from '@revideo/2d';
+import {makeScene2D, Audio} from '@revideo/2d';
 import {waitFor} from '@revideo/core';
 import {IDE} from '../ide';
 import {Emacs} from '../emacs';
 import {COLORS} from '../utils';
+import bgMusic from '../audio/bg-music.mp3';
 
 export const emacsInitScene = makeScene2D('emacs-init', function* (view) {
   const ide = new IDE(view);
-  view.add(<Audio src={'/audio/bg-music.mp3'} play={true} volume={0.3} loop={true} />);
+  view.add(<Audio src={bgMusic} play={true} volume={0.3} loop={true} />);
   const emacs = new Emacs();
   emacs.attach(ide.vizRef());
 
