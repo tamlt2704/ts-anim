@@ -1,14 +1,11 @@
 import {makeScene2D, Audio, Circle, Rect, Txt} from '@revideo/2d';
 import {all, createRef, waitFor, sequence} from '@revideo/core';
 
-// Place your background music file in the project root or src folder
-import bgMusic from '../audio/bg-music.mp3';
-
 export const introScene = makeScene2D('intro', function* (view) {
   view.fill('#0a0a0a');
 
-  // Background music — plays across scenes
-  view.add(<Audio src={bgMusic} play={true} volume={0.3} />);
+  // Background music — loops for the whole video, stops when animation ends
+  view.add(<Audio src={'/audio/bg-music.mp3'} play={true} volume={0.3} loop={true} />);
 
   const titleRef = createRef<Txt>();
   const subtitleRef = createRef<Txt>();

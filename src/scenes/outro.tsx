@@ -1,8 +1,9 @@
-import {makeScene2D, Rect, Txt} from '@revideo/2d';
+import {makeScene2D, Audio, Rect, Txt} from '@revideo/2d';
 import {waitFor} from '@revideo/core';
 
 export const outroScene = makeScene2D('outro', function* (view) {
   view.fill('#181818');
+  view.add(<Audio src={'/audio/bg-music.mp3'} play={true} volume={0.3} loop={true} />);
 
   view.add(
     <Rect width={1920} height={1080} layout={true} direction={'column'} alignItems={'center'} justifyContent={'center'} gap={30}>
